@@ -6,8 +6,7 @@ import {
 } from '@material-ui/icons'
 
 import {
-    TreeView,
-    TreeItem
+    TreeView
 } from '@material-ui/lab';
 
 import { Branch } from './branch';
@@ -43,7 +42,7 @@ export const CRUDTree: React.FC<CRUDTreeProps> = (props) => {
                 <Branch
                     onAdd={() => onAdd(x)}
                     onEdit={() => onEdit(x)}
-                    onClick={(e) => onClick(x)}
+                    onClick={(_e: any) => onClick(x)}
                     id={x.id}
                     label={x.title}>
                         {props.value.filter((a) => a.parent == x.id).map((y) => (
@@ -52,7 +51,7 @@ export const CRUDTree: React.FC<CRUDTreeProps> = (props) => {
                                 label={y.title}
                                 onAdd={() => onAdd(y)}
                                 onEdit={() => onEdit(y)}
-                                onClick={(e) => onClick(y)}
+                                onClick={(_e: any) => onClick(y)}
                              />
                         ))}
                 </Branch>

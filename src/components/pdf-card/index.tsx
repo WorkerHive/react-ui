@@ -21,7 +21,7 @@ export const PDFCard : React.FC<PDFCardProps> = (props) => {
              {
               Array.from(
                 new Array(numPages),
-                (el, index) => (
+                (_el : any, index) => (
                   <Page
                     key={`page_${index + 1}`}
                     pageNumber={index + 1}
