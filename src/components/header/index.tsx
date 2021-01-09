@@ -13,11 +13,11 @@ import {
 
 export interface HeaderProps{
   onTabSelect?: Function;
-  title: string;
-  tabs: Array<any>;
-  connected: string;
-  user: any;
-  selectedTab: string;
+  title?: string;
+  tabs?: Array<any>;
+  connected?: string;
+  user?: any;
+  selectedTab?: string;
 }
 
 export const Header : React.FC<HeaderProps> = (props) => {
@@ -25,8 +25,8 @@ export const Header : React.FC<HeaderProps> = (props) => {
         <Paper className="dashapp-header">
         <Typography variant="h6">{props.title}</Typography>
         <div className="dashapp-header__tabs">
-            <Tabs value={props.tabs.map((x) => x.toLowerCase()).indexOf(props.selectedTab.toLowerCase())} onChange={(_e : any, newVal) => {
-                if(props.onTabSelect) props.onTabSelect(props.tabs[newVal])
+            <Tabs value={props.tabs!.map((x) => x.toLowerCase()).indexOf(props.selectedTab!.toLowerCase())} onChange={(_e : any, newVal) => {
+                if(props.onTabSelect) props.onTabSelect(props.tabs![newVal])
             }}>
             {(props.tabs || []).map((x) => (
                 <Tab label={x} />
