@@ -16,7 +16,7 @@ import {
     DialogContent
 } from '@material-ui/core';
 
-import './index.css';
+//import './index.css';
 
 export interface PermissionFormProps {
   permissions: any;

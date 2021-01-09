@@ -17,7 +17,7 @@ import {
     InputAdornment
 } from '@material-ui/core';
 
-import './index.css';
+//import './index.css';
 
 export interface SearchTableProps{
   data: Array<any>;
