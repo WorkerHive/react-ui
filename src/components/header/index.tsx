@@ -25,7 +25,7 @@ export const Header : React.FC<HeaderProps> = (props) => {
         <Paper className="dashapp-header">
         <Typography variant="h6">{props.title}</Typography>
         <div className="dashapp-header__tabs">
-            <Tabs value={props.tabs.map((x) => x.toLowerCase()).indexOf(props.selectedTab.toLowerCase())} onChange={(e, newVal) => {
+            <Tabs value={props.tabs.map((x) => x.toLowerCase()).indexOf(props.selectedTab.toLowerCase())} onChange={(_e : any, newVal) => {
                 if(props.onTabSelect) props.onTabSelect(props.tabs[newVal])
             }}>
             {(props.tabs || []).map((x) => (

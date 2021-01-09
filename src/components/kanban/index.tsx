@@ -124,7 +124,7 @@ return {
                 if(props.onChange)props.onChange(cols)
                 setColumns(cols)
             }}
-            onColumnDragEnd={(obj, source, destination) => {
+            onColumnDragEnd={(_obj : any, source, destination) => {
                 let cols = columns.slice()
 
                 let spliced = cols.splice(source.fromPosition, 1)[0]
