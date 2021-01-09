@@ -15,7 +15,7 @@ const Template: Story<GLBCardProps> = (args) => <GLBCard {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  rootUrl: '/',
+  rootUrl: '/static/',
   data: 'container.glb'
 };
 
