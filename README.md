@@ -1,13 +1,13 @@
 # workhub-ui
 
-> Made with create-react-library
+> All the bits and bobs needed to compose a workhub
 
 [![NPM](https://img.shields.io/npm/v/workhub-ui.svg)](https://www.npmjs.com/package/workhub-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save workhub-ui
+npm install --save @workerhive/react-ui
 ```
 
 ## Usage
@@ -15,16 +15,19 @@ npm install --save workhub-ui
 ```tsx
 import React, { Component } from 'react'
 
-import MyComponent from 'workhub-ui'
+import { List, Dialog } from 'workhub-ui'
 import 'workhub-ui/dist/index.css'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <div>
+      <List />
+      <Dialog />
+      </div>
   }
 }
 ```
 
 ## License
 
-MIT © [balbatross](https://github.com/balbatross)
+MIT © [WorkerHive](https://github.com/WorkerHive)
