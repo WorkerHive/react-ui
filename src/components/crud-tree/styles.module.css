@@ -1,0 +1,8 @@
+.crudBranch .crudBranchActions{
+  opacity: 0;
+  transition: opacity 200ms ease-in;
+}
+
+.crudBranch:hover .crudBranchActions{
+  opacity: 1;
+}

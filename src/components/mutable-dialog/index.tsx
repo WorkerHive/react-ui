@@ -53,7 +53,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
     if (props.onSave) props.onSave(data)
   }
 
-  const renderItem = (key: string, type: any) => {
+  const renderItem = (key: string, type: any) : any => {
     switch (type.type ? type.type : type) {
       case 'KV':
         return (
@@ -137,7 +137,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
   }
 
   const renderStructure = () => {
-    let struct = []
+    let struct : Array<any> = []
 
     for (var k in props.structure) {
       struct.push(renderItem(k, props.structure[k]))

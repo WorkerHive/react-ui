@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core'
 
 export interface RWTableProps {
-  onChange: Function;
+  onChange?: Function;
   value: any;
   items: Array<any>;
 }

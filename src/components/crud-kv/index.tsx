@@ -14,7 +14,7 @@ import {
 export interface CRUDKVProps {
   types: Array<any>;
   value: any;
-  onChange: Function;
+  onChange?: Function;
 }
 
 export const CRUDKV : React.FC<CRUDKVProps> = (props) => {

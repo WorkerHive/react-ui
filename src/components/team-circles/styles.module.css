@@ -1,0 +1,15 @@
+.teamCircles{
+  display: flex;
+  flex-direction: row;
+}
+
+.teamCircles > *:nth-child(1){
+  margin-left: 0;
+}
+
+.teamCircles > *{
+  font-size: 16px !important;
+  height: 33px !important;
+  width: 33px !important;
+  margin-left: -18px;
+}
