@@ -23,9 +23,6 @@ export interface TeamCirclesProps{
 }
 
 export const TeamCircles : React.FC<TeamCirclesProps> = (props) => {
-    let getMember = (id) => {
-        return props.members.filter((a) => a.id == id)[0]
-    }
     return (
         <div className={styles.teamCircles}>
             {props.members.map((mbr) => {
