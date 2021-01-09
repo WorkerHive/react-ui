@@ -2,7 +2,7 @@
 
 > All the bits and bobs needed to compose a workhub
 
-[![NPM](https://img.shields.io/npm/v/workhub-ui.svg)](https://www.npmjs.com/package/workhub-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@workerhive/react-ui.svg)](https://www.npmjs.com/package/@workerhive/react-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
