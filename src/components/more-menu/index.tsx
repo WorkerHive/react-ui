@@ -11,8 +11,15 @@ import {
     Typography
 } from '@material-ui/core';
 
+export interface MoreMenuItem {
+  icon?: any;
+  label?: string;
+  color?: string;
+  action?: Function;
+}
+
 export interface MoreMenuProps {
-  menu: Array<any>;
+  menu: Array<MoreMenuItem>;
 }
 
 export const MoreMenu : React.FC<MoreMenuProps> = (props) => {
@@ -35,7 +42,7 @@ export const MoreMenu : React.FC<MoreMenuProps> = (props) => {
                     <MenuItem onClick={(e) => {
                         e.stopPropagation()
                         openMenu(null)
-                        x.action()
+                        if(x.action) x.action()
                     }} style={{color: x.color || 'black'}}>
                         {x.icon}
                         <Typography style={{marginLeft: 8}}>

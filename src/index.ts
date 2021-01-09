@@ -16,4 +16,6 @@ import { MoreMenu } from './components/more-menu';
 import { SearchTable } from './components/search-table';
 import { PermissionForm } from './components/permission-form'
 
-export { CRUDList, CRUDTree, CRUDKV, MutableDialog, RWTable, GraphKanban, PDFCard, TeamCircles, GLBCard, Header, MoreMenu, PermissionForm, SearchTable }
+import { AccordionList } from './components/accordion-list'
+
+export { AccordionList, CRUDList, CRUDTree, CRUDKV, MutableDialog, RWTable, GraphKanban, PDFCard, TeamCircles, GLBCard, Header, MoreMenu, PermissionForm, SearchTable }

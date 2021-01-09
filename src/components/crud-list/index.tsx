@@ -22,7 +22,7 @@ export interface CRUDListProps {
   onDelete?: Function
   onSave?: Function
   title: string
-  type: any
+  type?: any
   dialog?: React.Component
 }
 
