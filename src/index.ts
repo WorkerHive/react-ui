@@ -13,4 +13,7 @@ import { GLBCard } from './components/3d-card';
 import { Header } from './components/header';
 import { MoreMenu } from './components/more-menu';
 
-export { CRUDList, CRUDTree, CRUDKV, MutableDialog, RWTable, GraphKanban, PDFCard, TeamCircles, GLBCard, Header, MoreMenu }
+import { SearchTable } from './components/search-table';
+import { PermissionForm } from './components/permission-form'
+
+export { CRUDList, CRUDTree, CRUDKV, MutableDialog, RWTable, GraphKanban, PDFCard, TeamCircles, GLBCard, Header, MoreMenu, PermissionForm, SearchTable }
