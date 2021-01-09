@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "dist",
+    "rootDir": "src",
     "module": "esnext",
     "lib": ["dom", "esnext"],
     "moduleResolution": "node",
@@ -15,8 +16,9 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "allowJs": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist", "example"]
+  "include": ["src/components"],
+  "exclude": ["node_modules", "dist", "example", "src/stories"]
 }
