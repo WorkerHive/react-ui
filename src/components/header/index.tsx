@@ -11,8 +11,6 @@ import {
     Tab
 } from '@material-ui/core';
 
-import styles from './styles.module.css';
-
 export interface HeaderProps{
   onTabSelect?: Function;
   title: string;
