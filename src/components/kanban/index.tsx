@@ -5,8 +5,6 @@ import Board from '@lourenci/react-kanban'
 import { TeamCircles } from '../team-circles';
 
 import '@lourenci/react-kanban/dist/styles.css'
-import styles from './styles.module.css';
-
 
 export interface GraphKanbanProps{
   graph: any;
@@ -52,8 +50,6 @@ export const GraphKanban : React.FC<GraphKanbanProps> = (props) => {
         }
 
         return template.map((col : any) => {
-            let col_id = col.id;
-
             let cards = [];
             if(col.status){
                 cards = props.graph.nodes.filter((a) => {
