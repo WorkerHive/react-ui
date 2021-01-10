@@ -14,7 +14,7 @@ import { Header } from './components/header';
 import { MoreMenu } from './components/more-menu';
 
 import { StyledSearchTable as SearchTable } from './components/search-table';
-import { PermissionForm } from './components/permission-form'
+import { StyledPermissionForm as PermissionForm } from './components/permission-form'
 
 import { AccordionList } from './components/accordion-list'
 

@@ -23,7 +23,7 @@ export interface MoreMenuProps {
 }
 
 export const MoreMenu : React.FC<MoreMenuProps> = (props) => {
-    const [ menuOpen, openMenu ] = React.useState<any>(false);
+    const [ menuOpen, openMenu ] = React.useState<any>();
 
     const toggleMenu = (e) => {
         e.preventDefault()
