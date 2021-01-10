@@ -22,7 +22,7 @@ import {
 export interface SearchTableProps{
   data: Array<any>;
   renderItem: Function;
-  filter: Function;
+  filter?: Function;
 }
 
 export const SearchTable : React.FC<SearchTableProps> = (props) => {

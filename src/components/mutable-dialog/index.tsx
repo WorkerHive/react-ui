@@ -32,6 +32,7 @@ export interface MutableDialogProps {
   onSave?: Function
   structure: Record<string, any>
   title: string
+  prefix?: string;
   open: boolean
 }
 
@@ -147,7 +148,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
 
   return (
     <Dialog fullWidth open={props.open} onClose={onClose}>
-      <DialogTitle>{props.title}</DialogTitle>
+      <DialogTitle>{props.prefix ? props.prefix + " " : ""}{props.title}</DialogTitle>
       <DialogContent style={{ display: 'flex', flexDirection: 'column' }}>
         {renderStructure()}
       </DialogContent>

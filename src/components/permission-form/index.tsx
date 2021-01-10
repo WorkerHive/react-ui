@@ -21,7 +21,7 @@ import {
 export interface PermissionFormProps {
   permissions: any;
   type: any;
-  selected: any;
+  selected?: any;
   onClose?: Function;
   onSave?: Function;
   style?: any;
