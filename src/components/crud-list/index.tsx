@@ -15,7 +15,6 @@ import { MoreVert } from '@material-ui/icons'
 
 import { MutableDialog } from '../mutable-dialog'
 
-import styles from './styles.module.css';
 
 export interface CRUDListProps {
   data?: Array<any>
@@ -39,7 +38,7 @@ export const CRUDList: React.FC<CRUDListProps> = ({
   const [anchorEl, setAnchorEl] = React.useState<any>(null)
 
   return (
-    <div className={styles.crudList}>
+    <div >
       {type && !dialog && (
         <MutableDialog
           onSave={(data: any) => {

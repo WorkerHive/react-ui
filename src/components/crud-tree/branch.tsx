@@ -13,8 +13,6 @@ import {
     Add
 } from "@material-ui/icons"
 
-import styles from './styles.module.css';
-
 export interface BranchProps {
   onEdit?: Function;
   onAdd?: Function;
@@ -45,14 +43,13 @@ export const Branch : React.FC<BranchProps> = (props) => {
             label={(
                 <div
                     onClick={props.onClick}
-                    className={styles.crudBranch}
                     style={{
                         height: 50,
                         display: 'flex',
                         alignItems: 'center'
                     }}>
                     <div style={{flex: 1}}>{props.label}</div>
-                    <div className={styles.crudBranchActions}>
+                    <div>
                         {actions.map((x) => (
                             <IconButton onClick={(e) => x.action(e)}>
                                 {x.icon}

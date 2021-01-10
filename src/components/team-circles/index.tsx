@@ -1,6 +1,5 @@
 import React from 'react';
 import { Avatar } from '@material-ui/core';
-import styles from './styles.module.css';
 
 function hashCode(str) { // java String#hashCode
     var hash = 0;
@@ -24,7 +23,7 @@ export interface TeamCirclesProps{
 
 export const TeamCircles : React.FC<TeamCirclesProps> = (props) => {
     return (
-        <div className={styles.teamCircles}>
+        <div>
             {props.members.map((mbr) => {
                 const member = mbr
                 if(member) return <Avatar style={{backgroundColor: '#'+ intToRGB(hashCode(member.name))}}>{member.name.split(' ').map((x) => x.substring(0, 1))}</Avatar>

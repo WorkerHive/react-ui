@@ -34,9 +34,6 @@ const plugins = [
   }),
   postcss({
     plugins: [autoprefixer()],
-    sourceMap: true,
-    extract: true,
-    minimize: true
   })
 ];
 
