@@ -1,9 +1,7 @@
 import typescript from "rollup-plugin-typescript2";
 import pkg from "./package.json";
 import commonjs from 'rollup-plugin-commonjs';
-import autoprefixer from 'autoprefixer';
-import postcss from 'rollup-plugin-postcss';
-
+import styles from "rollup-plugin-styles";
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
 const input = "src/index.ts";
 
@@ -31,22 +29,10 @@ const plugins = [
         'ForwardRef'
       ]
     }
-  }),
-  postcss({
-    plugins: [autoprefixer()],
   })
 ];
 
 export default [
-  {
-    input,
-    output: {
-      file: pkg.module,
-      format: "esm",
-      sourcemap: true,
-    },
-    plugins,
-  },
   {
     input,
     output: {

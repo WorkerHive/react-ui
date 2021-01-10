@@ -37,7 +37,7 @@ export const Header : React.FC<HeaderProps> = (props) => {
         <div className="actions-col">
           <Notifications />
           <div className="user-info">
-            <Typography variant="subtitle1">{props.user.name}</Typography>
+            {props.user && <Typography variant="subtitle1">{props.user.name}</Typography>}
             <div className={status}><div className="bubble" />{props.connected == "connected" ? "Online" : "Offline"}</div>
           </div>
         </div>

@@ -13,7 +13,6 @@ import uuid from 'uuid'
 
 
 import { Typography } from '@material-ui/core'
-import Spinner from 'react-spinkit';
 
 import { ConvertFiles } from './convert-action';
 
@@ -30,7 +29,7 @@ export interface FileBrowserProps {
   onDownloadEnd?: Function;
 }
 
-declare const Buffer;
+
 
 export const WorkhubFileBrowser: React.FC<FileBrowserProps> = (props) => {
 
@@ -193,7 +192,6 @@ export const WorkhubFileBrowser: React.FC<FileBrowserProps> = (props) => {
       </FileBrowser>
       {props.loading && (
         <div className="ipfs-loader">
-          <Spinner />
           <Typography variant="h6" style={{ fontWeight: 'bold' }}>Loading file network</Typography>
         </div>
       )}
