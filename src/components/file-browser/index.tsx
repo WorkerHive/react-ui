@@ -18,16 +18,16 @@ import Spinner from 'react-spinkit';
 import { ConvertFiles } from './convert-action';
 
 export interface FileBrowserProps {
-  loading: boolean;
+  loading?: boolean;
   files: Array<any>;
-  title: string;
-  onConvertFiles: Function;
-  onUploadFiles: Function;
-  onFileOpen: Function;
-  onFileUpload: Function;
-  onFileDownload: Function;
-  onDownloadProgress: Function;
-  onDownloadEnd: Function;
+  title?: string;
+  onConvertFiles?: Function;
+  onUploadFiles?: Function;
+  onFileOpen?: Function;
+  onFileUpload?: Function;
+  onFileDownload?: Function;
+  onDownloadProgress?: Function;
+  onDownloadEnd?: Function;
 }
 
 declare const Buffer;
