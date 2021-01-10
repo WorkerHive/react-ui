@@ -16,9 +16,12 @@ import {
     DialogContent
 } from '@material-ui/core';
 
+
+import styled from 'styled-components'
 //import './index.css';
 
 export interface PermissionFormProps {
+  className: string;
   permissions: any;
   type: any;
   selected?: any;
@@ -119,7 +122,7 @@ export const PermissionForm : React.FC<PermissionFormProps> = (props) => {
     }
 
     return (
-        <div className="permission-form" style={props.style}>
+        <div className={props.className}>
             <Dialog fullWidth open={props.selected || dialogOpen} onClose={() => {
                onClose()
             }}>
@@ -143,3 +146,15 @@ export const PermissionForm : React.FC<PermissionFormProps> = (props) => {
         </div>
     )
 }
+
+export const StyledPermissionForm = styled(PermissionForm)`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  .permission-form__inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+`

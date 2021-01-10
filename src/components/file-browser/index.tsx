@@ -10,13 +10,14 @@ import { StyledFileDrop as FileDrop } from '../file-drop';
 import { MutableDialog } from '../mutable-dialog'
 
 import uuid from 'uuid'
-
+import styled from 'styled-components'
 
 import { Typography } from '@material-ui/core'
 
 import { ConvertFiles } from './convert-action';
 
 export interface FileBrowserProps {
+  className: string;
   loading?: boolean;
   files: Array<any>;
   title?: string;
@@ -28,6 +29,7 @@ export interface FileBrowserProps {
   onDownloadProgress?: Function;
   onDownloadEnd?: Function;
 }
+
 
 
 
@@ -137,7 +139,7 @@ export const WorkhubFileBrowser: React.FC<FileBrowserProps> = (props) => {
   const [folders, setFolders] = React.useState<Array<any>>([])
 
   return (
-    <div className="workhub-fs">
+    <div className={props.className}>
       <MutableDialog
         prefix={"Add"}
         title={"Folder"}
@@ -198,3 +200,8 @@ export const WorkhubFileBrowser: React.FC<FileBrowserProps> = (props) => {
     </div>
   )
 }
+
+export const StyledFileBrowser = styled(WorkhubFileBrowser)`
+  display: flex;
+  flex-direction: column;
+`

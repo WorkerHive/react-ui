@@ -7,19 +7,19 @@ import { CRUDTree } from './components/crud-tree';
 import { GraphKanban } from './components/kanban'
 
 import { PDFCard } from './components/pdf-card'
-import { TeamCircles } from './components/team-circles';
+import { StyledCircles as TeamCircles } from './components/team-circles';
 
 import { GLBCard } from './components/3d-card';
 import { Header } from './components/header';
 import { MoreMenu } from './components/more-menu';
 
-import { SearchTable } from './components/search-table';
+import { StyledSearchTable as SearchTable } from './components/search-table';
 import { PermissionForm } from './components/permission-form'
 
 import { AccordionList } from './components/accordion-list'
 
 import { DocumentEditor } from './components/document-editor';
-import { WorkhubFileBrowser as FileBrowser } from './components/file-browser'
+import { StyledFileBrowser as FileBrowser } from './components/file-browser'
 import { StyledFileDrop as FileDrop } from './components/file-drop';
 
 import { pdfjs } from 'react-pdf';

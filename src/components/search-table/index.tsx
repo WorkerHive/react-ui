@@ -17,9 +17,11 @@ import {
     InputAdornment
 } from '@material-ui/core';
 
+import styled from 'styled-components'
 //import './index.css';
 
 export interface SearchTableProps{
+  className: string;
   data: Array<any>;
   renderItem: Function;
   filter?: Function;
@@ -29,7 +31,7 @@ export const SearchTable : React.FC<SearchTableProps> = (props) => {
     const [ search, setSearch ] = React.useState('')
 
     return (
-        <Paper style={{flex: '1 1 auto', marginTop: 12, height: 0, display: 'flex', flexDirection: 'column'}}>
+        <Paper className={props.className}>
             <div className="options-bar">
                 <TextField
                     InputProps={{
@@ -65,3 +67,18 @@ export const SearchTable : React.FC<SearchTableProps> = (props) => {
         </Paper>
     )
 }
+
+
+export const StyledSearchTable = styled(SearchTable)`
+  flex: 1 1 auto;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+
+  .options-bar{
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`

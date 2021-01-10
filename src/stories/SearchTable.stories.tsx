@@ -2,21 +2,22 @@ import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import {StyledCircles as TeamCircles, TeamCirclesProps} from '../components/team-circles';
+import { StyledSearchTable as SearchTable, SearchTableProps } from '../components/search-table';
 
 
 export default {
-  title: 'Example/Team Circles',
-  component: TeamCircles,
+  title: 'Example/Search Table',
+  component: SearchTable,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
 } as Meta;
 
-const Template: Story<TeamCirclesProps> = (args) => <TeamCircles {...args} />;
+const Template: Story<SearchTableProps> = (args) => <SearchTable {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  members: [{name: "Ross Leitch"}, {name: "Other Name"}]
+  data: [{name: "Test"}],
+  renderItem: (data: any) => data.name
 };
 

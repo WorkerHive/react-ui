@@ -1,5 +1,6 @@
 import React from 'react';
 import { Avatar } from '@material-ui/core';
+import styled from 'styled-components'
 
 function hashCode(str) { // java String#hashCode
     var hash = 0;
@@ -18,12 +19,13 @@ function intToRGB(i){
 }
 
 export interface TeamCirclesProps{
+  className: string;
   members: Array<any>;
 }
 
 export const TeamCircles : React.FC<TeamCirclesProps> = (props) => {
     return (
-        <div>
+        <div className={props.className}>
             {props.members.map((mbr) => {
                 const member = mbr
                 if(member) return <Avatar style={{backgroundColor: '#'+ intToRGB(hashCode(member.name))}}>{member.name.split(' ').map((x) => x.substring(0, 1))}</Avatar>
@@ -31,3 +33,12 @@ export const TeamCircles : React.FC<TeamCirclesProps> = (props) => {
         </div>
     )
 }
+
+export const StyledCircles = styled(TeamCircles)`
+  display: flex;
+
+  .MuiAvatar-root:not(:first-child){
+    margin-left: -18px;
+  }
+
+`
