@@ -18,6 +18,7 @@ import { PermissionForm } from './components/permission-form'
 
 import { AccordionList } from './components/accordion-list'
 
+import { DocumentEditor } from './components/document-editor';
 import { WorkhubFileBrowser as FileBrowser } from './components/file-browser'
 import { StyledFileDrop as FileDrop } from './components/file-drop';
 
@@ -29,4 +30,4 @@ setChonkyDefaults({ iconComponent: ChonkyIconFA });
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-export { FileDrop, FileBrowser, AccordionList, CRUDList, CRUDTree, CRUDKV, MutableDialog, RWTable, GraphKanban, PDFCard, TeamCircles, GLBCard, Header, MoreMenu, PermissionForm, SearchTable }
+export { DocumentEditor, FileDrop, FileBrowser, AccordionList, CRUDList, CRUDTree, CRUDKV, MutableDialog, RWTable, GraphKanban, PDFCard, TeamCircles, GLBCard, Header, MoreMenu, PermissionForm, SearchTable }

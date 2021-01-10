@@ -82,6 +82,7 @@
     "react-dropzone": "^11.2.4",
     "react-pdf": "^5.1.0",
     "react-spinkit": "^3.0.0",
+    "rich-markdown-editor": "^11.1.0",
     "styled-components": "^5.2.1"
   }
 }
