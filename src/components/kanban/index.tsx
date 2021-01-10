@@ -4,7 +4,7 @@ import moment from 'moment';
 import Board from '@lourenci/react-kanban'
 import { TeamCircles } from '../team-circles';
 
-import '@lourenci/react-kanban/dist/styles.css'
+//import '@lourenci/react-kanban/dist/styles.css'
 
 export interface GraphKanbanProps{
   graph: any;
