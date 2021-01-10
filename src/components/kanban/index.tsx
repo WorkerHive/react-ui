@@ -2,7 +2,7 @@ import React from 'react';
 
 import moment from 'moment';
 import Board from '@lourenci/react-kanban'
-import { TeamCircles } from '../team-circles';
+import { TeamCircles } from '../..';
 
 //import '@lourenci/react-kanban/dist/styles.css'
 
