@@ -9,7 +9,7 @@ import {
 import { StyledFileDrop as FileDrop } from '../file-drop';
 import { MutableDialog } from '../mutable-dialog'
 
-import { v4 as uuidv4 } from 'uuid'
+import uuid from 'uuid'
 
 
 import { Typography } from '@material-ui/core'
@@ -146,7 +146,7 @@ export const WorkhubFileBrowser: React.FC<FileBrowserProps> = (props) => {
         structure={{ name: 'String' }}
         onSave={(obj: any) => {
           setFolders(folders.concat([{
-            id: uuidv4(),
+            id: uuid.v4(),
             filename: obj.name,
             isDir: true
           }])
