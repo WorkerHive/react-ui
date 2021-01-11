@@ -61,6 +61,7 @@ export const Header : React.FC<HeaderProps> = ({
 export const StyledHeader = styled(Header)`
   display: flex;
   flex: 1;
+  height: 50px;
   justify-content:space-between;
   padding-left: 12px;
   padding-right: 12px;
