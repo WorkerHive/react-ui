@@ -16,7 +16,9 @@ import { MoreMenu } from './components/more-menu';
 import { StyledSearchTable as SearchTable } from './components/search-table';
 import { StyledPermissionForm as PermissionForm } from './components/permission-form'
 
-import { AccordionList } from './components/accordion-list'
+
+import { StyledShortcutLinks as ShortcutLinks } from './components/shortcut-links'
+import { StyledAccordionList as AccordionList } from './components/accordion-list'
 
 import { DocumentEditor } from './components/document-editor';
 import { StyledFileBrowser as FileBrowser } from './components/file-browser'
@@ -30,4 +32,4 @@ setChonkyDefaults({ iconComponent: ChonkyIconFA });
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-export { DocumentEditor, FileDrop, FileBrowser, AccordionList, CRUDList, CRUDTree, CRUDKV, MutableDialog, RWTable, GraphKanban, PDFCard, TeamCircles, GLBCard, Header, MoreMenu, PermissionForm, SearchTable }
+export { ShortcutLinks, DocumentEditor, FileDrop, FileBrowser, AccordionList, CRUDList, CRUDTree, CRUDKV, MutableDialog, RWTable, GraphKanban, PDFCard, TeamCircles, GLBCard, Header, MoreMenu, PermissionForm, SearchTable }

@@ -11,12 +11,14 @@ import {
   Button
 } from '@material-ui/core'
 
+import styled from 'styled-components'
 import { MoreVert } from '@material-ui/icons'
 
 import { MutableDialog } from '../mutable-dialog'
 
 
 export interface CRUDListProps {
+  className?: string;
   data?: Array<any>
   onDelete?: Function
   onSave?: Function
@@ -31,6 +33,7 @@ export const CRUDList: React.FC<CRUDListProps> = ({
   dialog,
   title,
   onDelete,
+  className,
   onSave
 }) => {
   const [dialogOpen, openDialog] = React.useState(false)
@@ -38,7 +41,7 @@ export const CRUDList: React.FC<CRUDListProps> = ({
   const [anchorEl, setAnchorEl] = React.useState<any>(null)
 
   return (
-    <div >
+    <div className={className}>
       {type && !dialog && (
         <MutableDialog
           onSave={(data: any) => {
@@ -106,3 +109,14 @@ export const CRUDList: React.FC<CRUDListProps> = ({
     </div>
   )
 }
+
+export const StyledCRUDList = styled(CRUDList)`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .crud-list__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+`

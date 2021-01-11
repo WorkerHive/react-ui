@@ -10,18 +10,21 @@ import {
     ExpandMore
 } from "@material-ui/icons";
 
+import styled from 'styled-components'
+
 export interface AccordionListItem{
   title: any;
   body: any;
 }
 
 export interface AccordionListProps {
+  className?: string;
   items: Array<AccordionListItem>;
 }
 
 export const AccordionList : React.FC<AccordionListProps> = (props) => {
     return (
-        <div>
+        <div className={props.className}>
             {props.items.map((x) => (
                 <Accordion>
                     <AccordionSummary
@@ -36,3 +39,9 @@ export const AccordionList : React.FC<AccordionListProps> = (props) => {
         </div>
     )
 }
+
+export const StyledAccordionList = styled(AccordionList)`
+  display: flex;
+  flex-direction:column;
+  flex: 1;
+`
