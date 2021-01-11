@@ -1,4 +1,4 @@
-import { CRUDList } from './components/crud-list'
+import { StyledCRUDList as CRUDList } from './components/crud-list'
 import { MutableDialog } from './components/mutable-dialog'
 import { RWTable } from './components/rw-table'
 import { CRUDKV } from './components/crud-kv';
@@ -10,7 +10,7 @@ import { PDFCard } from './components/pdf-card'
 import { StyledCircles as TeamCircles } from './components/team-circles';
 
 import { GLBCard } from './components/3d-card';
-import { Header } from './components/header';
+import { StyledHeader as Header } from './components/header';
 import { MoreMenu } from './components/more-menu';
 
 import { StyledSearchTable as SearchTable } from './components/search-table';
