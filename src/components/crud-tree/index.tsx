@@ -19,18 +19,23 @@ export interface CRUDTreeProps {
   value: Array<any>;
 }
 
-export const CRUDTree: React.FC<CRUDTreeProps> = (props) => {
+export const CRUDTree: React.FC<CRUDTreeProps> = ({
+  onClick,
+  onEdit,
+  onAdd,
+  value = []
+}) => {
 
-    const onAdd = (x : any) => {
-        if(props.onAdd) props.onAdd(x)
+    const _onAdd = (x : any) => {
+        if(onAdd) onAdd(x)
     }
 
-    const onEdit = (x : any) => {
-        if(props.onEdit) props.onEdit(x)
+    const _onEdit = (x : any) => {
+        if(onEdit) onEdit(x)
     }
 
-    const onClick = (x : any) => {
-        if(props.onClick) props.onClick(x)
+    const _onClick = (x : any) => {
+        if(onClick) onClick(x)
     }
 
     return (
@@ -38,20 +43,20 @@ export const CRUDTree: React.FC<CRUDTreeProps> = (props) => {
             defaultCollapseIcon={<ExpandLess />}
             defaultExpandIcon={<ExpandMore />}
             >
-            {props.value.filter((a) => !a.parent).map((x) => (
+            {value.filter((a) => !a.parent).map((x) => (
                 <Branch
-                    onAdd={() => onAdd(x)}
-                    onEdit={() => onEdit(x)}
-                    onClick={(_e: any) => onClick(x)}
+                    onAdd={() => _onAdd(x)}
+                    onEdit={() => _onEdit(x)}
+                    onClick={(_e: any) => _onClick(x)}
                     id={x.id}
                     label={x.title}>
-                        {props.value.filter((a) => a.parent == x.id).map((y) => (
+                        {value.filter((a) => a.parent == x.id).map((y) => (
                             <Branch
                                 id={y.id}
                                 label={y.title}
-                                onAdd={() => onAdd(y)}
-                                onEdit={() => onEdit(y)}
-                                onClick={(_e: any) => onClick(y)}
+                                onAdd={() => _onAdd(y)}
+                                onEdit={() => _onEdit(y)}
+                                onClick={(_e: any) => _onClick(y)}
                              />
                         ))}
                 </Branch>

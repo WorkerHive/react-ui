@@ -21,17 +21,22 @@ import styled from 'styled-components'
 //import './index.css';
 
 export interface SearchTableProps{
-  className: string;
-  data: Array<any>;
-  renderItem: Function;
+  className?: string;
+  data?: Array<any>;
+  renderItem?: Function;
   filter?: Function;
 }
 
-export const SearchTable : React.FC<SearchTableProps> = (props) => {
+export const SearchTable : React.FC<SearchTableProps> = ({
+  className,
+  data = [],
+  renderItem = (a) => a.toString(),
+  filter
+}) => {
     const [ search, setSearch ] = React.useState('')
 
     return (
-        <Paper className={props.className}>
+        <Paper className={className}>
             <div className="options-bar">
                 <TextField
                     InputProps={{
@@ -52,14 +57,14 @@ export const SearchTable : React.FC<SearchTableProps> = (props) => {
             <Divider />
             <div className="grid-list">
                 <List>
-                    {props.data.filter((a) => {
-                        if(props.filter && search.length > 0){
-                            return props.filter(a, search)
+                    {data.filter((a) => {
+                        if(filter && search.length > 0){
+                            return filter(a, search)
                         }
                         return true;
                     }).map((x) => (
                     <ListItem>
-                        {props.renderItem(x)}
+                        {renderItem(x)}
                     </ListItem>
                     ))}
                 </List>

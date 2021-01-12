@@ -204,4 +204,5 @@ export const WorkhubFileBrowser: React.FC<FileBrowserProps> = (props) => {
 export const StyledFileBrowser = styled(WorkhubFileBrowser)`
   display: flex;
   flex-direction: column;
+  flex: 1;
 `

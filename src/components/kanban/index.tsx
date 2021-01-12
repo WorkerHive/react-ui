@@ -8,7 +8,7 @@ import { TeamCircles } from '../..';
 
 export interface GraphKanbanProps{
   graph: any;
-  template: any;
+  template?: any;
   selfish?: boolean;
   onClick?: (e: any) => void;
   onStatusChange?: Function;
@@ -16,7 +16,15 @@ export interface GraphKanbanProps{
   user?: any;
 }
 
-export const GraphKanban : React.FC<GraphKanbanProps> = (props) => {
+export const GraphKanban : React.FC<GraphKanbanProps> = ({
+  graph = {nodes: [], links: []},
+  template = [],
+  selfish = false,
+  onClick,
+  onStatusChange,
+  onChange,
+  user = {}
+}) => {
     const [ columns, setColumns ] = React.useState([
         {
             id: 0,
@@ -26,7 +34,7 @@ export const GraphKanban : React.FC<GraphKanbanProps> = (props) => {
         {
             id: 1,
             title: 'Backlog',
-            cards: props.graph.nodes.filter((a) => a.status != "COMPLETED" && a.status != "BLOCKED").map((x) => ({
+            cards: graph.nodes.filter((a) => a.status != "COMPLETED" && a.status != "BLOCKED").map((x) => ({
                 id: x.id,
                 title: x.data.label,
             }))
@@ -45,27 +53,27 @@ export const GraphKanban : React.FC<GraphKanbanProps> = (props) => {
 
     const getColumns = () => {
         let template = []
-        if(props.template){
-            template = props.template || [];
+        if(template){
+            template = template || [];
         }
 
         return template.map((col : any) => {
             let cards = [];
             if(col.status){
-                cards = props.graph.nodes.filter((a) => {
+                cards = graph.nodes.filter((a) => {
                     return a.data.status == col.status
                 }) || []
             }else if(typeof(col.numParents) == "number"){
-                cards = props.graph.nodes.filter((node) => {
-                    return props.graph.links.filter((link) => link.target == node.id).length <= col.numParents
+                cards = graph.nodes.filter((node) => {
+                    return graph.links.filter((link) => link.target == node.id).length <= col.numParents
                 }) || []
             }
 
             return {
                 ...col,
                 cards: cards.filter((a : any) => {
-                    if(!props.selfish) return true;
-                    if(props.selfish) return (a.members || []).indexOf(props.user.id) > -1
+                    if(!selfish) return true;
+                    if(selfish) return (a.members || []).indexOf(user.id) > -1
                   }).sort((a : any, b : any) => {
 
                     if(!(a.data && a.data.dueDate)) a.data.dueDate = Infinity;
@@ -73,7 +81,7 @@ export const GraphKanban : React.FC<GraphKanbanProps> = (props) => {
 
                     return a.data.dueDate - b.data.dueDate
                 }).map((x : any) => {
-                    let parents = props.graph.links.filter((a) => a.target == x.id).map((y) => props.graph.nodes.filter((a) => a.id == y.source)[0])
+                    let parents = graph.links.filter((a) => a.target == x.id).map((y) => graph.nodes.filter((a) => a.id == y.source)[0])
 return {
                     ...x,
                     title: x.data.label,
@@ -90,8 +98,8 @@ return {
             renderCard={(card) => {
                 return (
                     <div onClick={() => {
-                        if(props.onClick){
-                            props.onClick(card)
+                        if(onClick){
+                            onClick(card)
                         }
                     }} className="react-kanban-card">
                         <div className="react-kanban-card__title">
@@ -120,8 +128,8 @@ return {
                 cols[toIx].cards.splice(destination.toPosition, 0, spliced[0])
 
 
-                if(props.onStatusChange) props.onStatusChange(card, props.template.filter((a) => a.id == destination.toColumnId)[0].status)
-                if(props.onChange)props.onChange(cols)
+                if(onStatusChange) onStatusChange(card, template.filter((a) => a.id == destination.toColumnId)[0].status)
+                if(onChange) onChange(cols)
                 setColumns(cols)
             }}
             onColumnDragEnd={(_obj : any, source, destination) => {
@@ -129,7 +137,7 @@ return {
 
                 let spliced = cols.splice(source.fromPosition, 1)[0]
                 cols.splice(destination.toPosition, 0, spliced)
-                if(props.onChange)props.onChange(cols)
+                if(onChange) onChange(cols)
                 setColumns(cols)
             }}
             children={{columns: getColumns()}} />
