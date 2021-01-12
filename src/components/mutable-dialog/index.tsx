@@ -102,7 +102,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
             }}
           />
         )
-      case 'Password':
+      case 'Hash':
         return (
           <TextField
             label={uppercase(key)}
