@@ -58,6 +58,11 @@ export const Header : React.FC<HeaderProps> = ({
     )
 }
 
+Header.defaultProps = {
+  tabs: [],
+  connected: 'disconnected',
+} as HeaderProps
+
 export const StyledHeader = styled(Header)`
   display: flex;
   height: 50px;
