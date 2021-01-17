@@ -21,6 +21,7 @@ export interface CRUDListProps {
   className?: string;
   data?: Array<any>
   onDelete?: Function
+  onEdit?: Function
   onSave?: Function
   title: string
   type?: any
@@ -33,6 +34,7 @@ export const CRUDList: React.FC<CRUDListProps> = ({
   dialog,
   title,
   onDelete,
+  onEdit,
   className,
   onSave
 }) => {
@@ -82,7 +84,13 @@ export const CRUDList: React.FC<CRUDListProps> = ({
             anchorEl={anchorEl}
             open={selected != null && !dialogOpen}
           >
-            <MenuItem onClick={() => openDialog(true)}>
+            <MenuItem onClick={() => {
+              if(!onEdit){
+                openDialog(true)
+              }else{
+                onEdit(selected)
+              }
+            }}>
               <Typography>Edit</Typography>
             </MenuItem>
             <MenuItem
