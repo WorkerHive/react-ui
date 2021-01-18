@@ -1,10 +1,12 @@
 import React from 'react'
 
-import { ExampleComponent } from 'workhub-ui'
-import 'workhub-ui/dist/index.css'
+import { GLBCard, GLBProps } from '@workerhive/react-ui'
+import '@workerhive/react-ui/dist/index.css'
+
+console.log(GLBProps)
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <GLBCard data={""} rootUrl={''} />
 }
 
 export default App
