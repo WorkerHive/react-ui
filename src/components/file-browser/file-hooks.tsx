@@ -1,4 +1,4 @@
-import React, {useMemo, useCallback, useRef, useEffect, useState} from 'react'
+import {useMemo, useCallback, useRef, useEffect, useState} from 'react'
 import { ChonkyActions, FileHelper } from 'chonky'
 
 const prepareCustomFileMap = () => {

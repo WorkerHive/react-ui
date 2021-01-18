@@ -8,6 +8,8 @@
     "jsx": "react",
     "sourceMap": true,
     "declaration": true,
+    "emitDeclarationOnly": true,
+    "isolatedModules": true,
     "esModuleInterop": true,
      "noImplicitThis": true,
     "strictNullChecks": true,
@@ -15,10 +17,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "allowJs": true,
-    "noEmit": true,
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "types": ["babylonjs", "babylonjs-loaders"]
   },
   "include": ["src/components"],
-  "exclude": ["node_modules/", "dist", "example", "src/stories"]
+  "exclude": ["node_modules/**/*", "dist", "example", "src/stories"]
 }
