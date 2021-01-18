@@ -11,7 +11,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "rollup -c rollup.config.js",
+    "build": "babel src/ --out-dir dist/ --extensions '.ts,.tsx'",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build",
@@ -22,8 +22,13 @@
     "react": "^16.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
     "@material-ui/core": "^4.11.2",
+    "@rollup/plugin-babel": "^5.2.2",
     "@storybook/addon-actions": "^6.1.11",
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addon-links": "^6.1.11",
@@ -38,6 +43,7 @@
     "autoprefixer": "^10.2.1",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.2.2",
+    "babel-plugin-typescript-to-proptypes": "^1.4.2",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",

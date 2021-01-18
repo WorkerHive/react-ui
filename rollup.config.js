@@ -1,7 +1,7 @@
 import typescript from "rollup-plugin-typescript2";
 import pkg from "./package.json";
 import commonjs from 'rollup-plugin-commonjs';
-import styles from "rollup-plugin-styles";
+import { getBabelOutputPlugin } from '@rollup/plugin-babel';
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
 const input = "src/index.ts";
 
@@ -29,6 +29,10 @@ const plugins = [
         'ForwardRef'
       ]
     }
+  }),
+  getBabelOutputPlugin({
+    presets: ['@babel/preset-typescript', '@babel/preset-react'],
+    plugins: ['babel-plugin-typescript-to-proptypes']
   })
 ];
 

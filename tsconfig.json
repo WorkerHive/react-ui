@@ -15,9 +15,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "allowJs": true,
+    "noEmit": true,
     "allowSyntheticDefaultImports": true,
     "types": ["babylonjs", "babylonjs-loaders"]
   },
   "include": ["src/components"],
-  "exclude": ["node_modules", "dist", "example", "src/stories"]
+  "exclude": ["node_modules/", "dist", "example", "src/stories"]
 }
