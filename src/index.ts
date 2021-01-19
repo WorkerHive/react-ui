@@ -9,7 +9,7 @@ import { GraphKanban } from './components/kanban'
 import { PDFCard } from './components/pdf-card'
 import { StyledCircles as TeamCircles } from './components/team-circles';
 
-import { GLBCard, PropTypes as GLBProps} from './components/3d-card';
+import { GLBCard } from './components/3d-card';
 import { StyledHeader as Header } from './components/header';
 import { MoreMenu } from './components/more-menu';
 
@@ -33,5 +33,4 @@ setChonkyDefaults({ iconComponent: ChonkyIconFA });
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export {
-  GLBProps,
   ShortcutLinks, DocumentEditor, FileDrop, FileBrowser, AccordionList, CRUDList, CRUDTree, CRUDKV, MutableDialog, RWTable, GraphKanban, PDFCard, TeamCircles, GLBCard, Header, MoreMenu, PermissionForm, SearchTable }

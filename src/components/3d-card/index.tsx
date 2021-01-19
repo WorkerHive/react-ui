@@ -1,5 +1,4 @@
 import React from 'react';
-import { keys } from 'ts-transformer-keys';
 import { Engine, Scene, Vector3, ArcRotateCamera, SceneLoader } from 'babylonjs';
 import 'babylonjs-loaders';
 
@@ -8,8 +7,6 @@ export interface GLBCardProps {
   data: string;
   rootUrl: string;
 }
-
-export const PropTypes : any = keys<GLBCardProps>();
 
 export const GLBCard : React.FC<GLBCardProps> = (props) => {
   let canvas;

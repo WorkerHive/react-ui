@@ -13,7 +13,7 @@ import {
 
 export interface CRUDKVProps {
   types: Array<any>;
-  value: any;
+  value: Array<any>;
   onChange?: Function;
 }
 

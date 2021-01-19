@@ -11,7 +11,7 @@ import {
 
 export interface RWTableProps {
   onChange?: Function;
-  value: any;
+  value: {};
   items: Array<any>;
 }
 

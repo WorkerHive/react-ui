@@ -7,10 +7,10 @@ import { TeamCircles } from '../..';
 //import '@lourenci/react-kanban/dist/styles.css'
 
 export interface GraphKanbanProps{
-  graph: any;
-  template?: any;
+  graph: {nodes: Array<any>, links: Array<any>};
+  template?: Array<any>;
   selfish?: boolean;
-  onClick?: (e: any) => void;
+  onClick?: Function;
   onStatusChange?: Function;
   onChange?: Function;
   user?: any;
@@ -58,7 +58,7 @@ export const GraphKanban : React.FC<GraphKanbanProps> = ({
         }
 
         return template.map((col : any) => {
-            let cards = [];
+            let cards : Array<any> = [];
             if(col.status){
                 cards = graph.nodes.filter((a) => {
                     return a.data.status == col.status

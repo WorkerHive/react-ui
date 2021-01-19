@@ -22,12 +22,11 @@ import styled from 'styled-components'
 
 export interface PermissionFormProps {
   className: string;
-  permissions: any;
-  type: any;
-  selected?: any;
+  permissions: Array<any>;
+  type: Array<any>;
+  selected?: object;
   onClose?: Function;
   onSave?: Function;
-  style?: any;
 }
 
 export const PermissionForm : React.FC<PermissionFormProps> = (props) => {
@@ -123,7 +122,7 @@ export const PermissionForm : React.FC<PermissionFormProps> = (props) => {
 
     return (
         <div className={props.className}>
-            <Dialog fullWidth open={props.selected || dialogOpen} onClose={() => {
+            <Dialog fullWidth open={props.selected != null || dialogOpen} onClose={() => {
                onClose()
             }}>
                 <DialogTitle>{type.name}</DialogTitle>

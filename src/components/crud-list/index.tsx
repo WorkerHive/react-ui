@@ -24,7 +24,7 @@ export interface CRUDListProps {
   onEdit?: Function
   onSave?: Function
   title: string
-  type?: any
+  type?: object
   dialog?: React.Component
 }
 

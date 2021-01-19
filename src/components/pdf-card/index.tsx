@@ -3,7 +3,7 @@ import React from 'react';
 import { Document, Page } from 'react-pdf';
 
 export interface PDFCardProps{
-  data?: any;
+  data?: Uint8Array;
 }
 
 export const PDFCard : React.FC<PDFCardProps> = (props) => {

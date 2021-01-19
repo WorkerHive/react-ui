@@ -1,6 +1,6 @@
 {
   "name": "@workerhive/react-ui",
-  "version": "1.0.25",
+  "version": "1.1.0",
   "description": "React UI Component library for Workhub",
   "author": "The Tech Company",
   "license": "MIT",
@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
+    "build:doc": "node src/make-doc.js",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build",
@@ -61,9 +62,8 @@
     "rollup": "^2.36.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-postcss": "4.0",
-    "rollup-plugin-styles": "^3.12.1",
     "rollup-plugin-typescript2": "^0.29.0",
-    "ts-transformer-keys": "^0.4.3",
+    "ts-json-schema-generator": "^0.83.2",
     "typescript": "^3.7.5"
   },
   "files": [

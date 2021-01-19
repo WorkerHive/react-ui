@@ -19,7 +19,7 @@ export interface HeaderProps{
   title?: string;
   tabs?: Array<any>;
   connected?: string;
-  user?: any;
+  user?: {name: string};
   selected?: string;
 }
 

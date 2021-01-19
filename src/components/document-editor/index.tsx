@@ -3,8 +3,8 @@ import React from 'react';
 import Editor from 'rich-markdown-editor';
 
 export interface DocumentEditorProps {
-  data: any;
-  id?: any;
+  data: {id: string, data: string};
+  id?: string;
   links?: any;
   onChange?: Function;
 }
