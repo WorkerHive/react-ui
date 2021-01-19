@@ -18,7 +18,6 @@ export interface CRUDKVProps {
 }
 
 export const CRUDKV : React.FC<CRUDKVProps> = (props) => {
-    const [ items, setItems ] = React.useState<Array<any>>([]);
 
     const scalar = [
         "ID",
@@ -75,7 +74,7 @@ export const CRUDKV : React.FC<CRUDKVProps> = (props) => {
                     <Checkbox checked={isList(x.type)} />
                 </div>
             ))}
-            <Button style={{marginTop: 12}} color="primary" fullWidth onClick={() => setItems(items.concat([{}]))} variant="contained">Add Row</Button>
+            <Button style={{marginTop: 12}} color="primary" fullWidth onClick={() => props.onChange && props.onChange(props.value.concat([{}]))} variant="contained">Add Row</Button>
         </div>
     )
 }
