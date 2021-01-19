@@ -54,7 +54,7 @@ export const CRUDKV : React.FC<CRUDKVProps> = (props) => {
             {(props.value || []).map((x : any, ix : number) => (
                 <div style={{display: 'flex', marginBottom: 8}}>
                     <TextField style={{marginRight: 4}} value={x.name} onChange={(e) => {
-                        onChange(ix, "name", e.target)
+                        onChange(ix, "name", e.target.value)
                     }} fullWidth label="Key Name"/>
                     <FormControl style={{marginLeft: 4}} fullWidth>
                         <InputLabel>Type</InputLabel>
