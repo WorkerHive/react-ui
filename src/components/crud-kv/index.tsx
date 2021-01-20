@@ -14,7 +14,7 @@ import {
 export interface CRUDKVProps {
   types: Array<any>;
   value: Array<any>;
-  onChange?: Function;
+  onChange?: (args: {value: Array<any>}) => void;
 }
 
 export const CRUDKV : React.FC<CRUDKVProps> = (props) => {
@@ -34,7 +34,7 @@ export const CRUDKV : React.FC<CRUDKVProps> = (props) => {
 
         v[ix] = Object.assign({}, v[ix], {[mod]: value});
 
-        if(props.onChange)props.onChange(v);
+        if(props.onChange)props.onChange({value: v});
     }
 
     const getType = (str : string) => {
@@ -74,7 +74,7 @@ export const CRUDKV : React.FC<CRUDKVProps> = (props) => {
                     <Checkbox checked={isList(x.type)} />
                 </div>
             ))}
-            <Button style={{marginTop: 12}} color="primary" fullWidth onClick={() => props.onChange && props.onChange(props.value.concat([{name: '', type: ''}]))} variant="contained">Add Row</Button>
+            <Button style={{marginTop: 12}} color="primary" fullWidth onClick={() => props.onChange && props.onChange({value: props.value.concat([{name: '', type: ''}])})} variant="contained">Add Row</Button>
         </div>
     )
 }

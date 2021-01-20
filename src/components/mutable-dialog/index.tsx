@@ -28,8 +28,8 @@ import { RWTable } from '../rw-table'
 
 export interface MutableDialogProps {
   data?: Record<string, any> | any
-  onClose?: Function
-  onSave?: Function
+  onClose?: () => void
+  onSave?: (args: {item: object}) => void;
   structure: Record<string, any>
   title: string
   prefix?: string;
@@ -51,7 +51,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
   }
 
   const onSave = () => {
-    if (props.onSave) props.onSave(data)
+    if (props.onSave) props.onSave({item: data})
   }
 
   const renderItem = (key: string, type: any) : any => {

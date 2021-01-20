@@ -25,8 +25,8 @@ export interface PermissionFormProps {
   permissions: Array<any>;
   type: Array<any>;
   selected?: object;
-  onClose?: Function;
-  onSave?: Function;
+  onClose?: () => void;
+  onSave?: (args: {data: object, changes: object}) => void;
 }
 
 export const PermissionForm : React.FC<PermissionFormProps> = (props) => {
@@ -116,7 +116,7 @@ export const PermissionForm : React.FC<PermissionFormProps> = (props) => {
     }
 
     const onSave = () => {
-        if(props.onSave) props.onSave(dataObj, changes)
+        if(props.onSave) props.onSave({data: dataObj, changes: changes})
         onClose();
     }
 

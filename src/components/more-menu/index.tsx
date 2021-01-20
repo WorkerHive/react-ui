@@ -15,7 +15,7 @@ export interface MoreMenuItem {
   icon?: React.Component;
   label?: string;
   color?: string;
-  action?: Function;
+  action?: () => void;
 }
 
 export interface MoreMenuProps {

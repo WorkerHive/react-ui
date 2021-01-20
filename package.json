@@ -1,6 +1,6 @@
 {
   "name": "@workerhive/react-ui",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "React UI Component library for Workhub",
   "author": "The Tech Company",
   "license": "MIT",
@@ -63,7 +63,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-postcss": "4.0",
     "rollup-plugin-typescript2": "^0.29.0",
-    "ts-json-schema-generator": "^0.83.2",
+    "silly-ts-json-schema-generator": "^0.84.0",
     "typescript": "^3.7.5"
   },
   "files": [

@@ -1,4 +1,4 @@
-const tsj = require('ts-json-schema-generator')
+const tsj = require('silly-ts-json-schema-generator')
 const fs = require('fs');
 
 let dirs = fs.readdirSync(__dirname + '/components', {withFileTypes: true}).filter((a) => a.isDirectory()).map(dir => dir.name);

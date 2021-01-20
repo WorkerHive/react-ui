@@ -10,10 +10,10 @@ export interface GraphKanbanProps{
   graph: {nodes: Array<any>, links: Array<any>};
   template?: Array<any>;
   selfish?: boolean;
-  onClick?: Function;
-  onStatusChange?: Function;
-  onChange?: Function;
-  user?: any;
+  onClick?: (args: {item: object}) => void;
+  onStatusChange?: (args: {card: object, status: string}) => void;
+  onChange?: (args: {value: Array<any>}) => void;
+  user?: {id: string};
 }
 
 export const GraphKanban : React.FC<GraphKanbanProps> = ({
@@ -99,7 +99,7 @@ return {
                 return (
                     <div onClick={() => {
                         if(onClick){
-                            onClick(card)
+                            onClick({item: card})
                         }
                     }} className="react-kanban-card">
                         <div className="react-kanban-card__title">
@@ -128,8 +128,8 @@ return {
                 cols[toIx].cards.splice(destination.toPosition, 0, spliced[0])
 
 
-                if(onStatusChange) onStatusChange(card, template.filter((a) => a.id == destination.toColumnId)[0].status)
-                if(onChange) onChange(cols)
+                if(onStatusChange) onStatusChange({card: card, status: template.filter((a) => a.id == destination.toColumnId)[0].status})
+                if(onChange) onChange({value: cols})
                 setColumns(cols)
             }}
             onColumnDragEnd={(_obj : any, source, destination) => {
@@ -137,8 +137,8 @@ return {
 
                 let spliced = cols.splice(source.fromPosition, 1)[0]
                 cols.splice(destination.toPosition, 0, spliced)
-                if(onChange) onChange(cols)
-                setColumns(cols)
+                //if(onChange) onChange(cols)
+                //setColumns(cols)
             }}
             children={{columns: getColumns()}} />
     )

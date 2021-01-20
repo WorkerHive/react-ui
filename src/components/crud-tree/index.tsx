@@ -13,9 +13,9 @@ import { Branch } from './branch';
 
 
 export interface CRUDTreeProps {
-  onClick?: Function;
-  onEdit?: Function;
-  onAdd?: Function;
+  onClick?: (args: {item: object}) => void;
+  onEdit?: (args: {item: object}) => void;
+  onAdd?: (args: {item: object}) => void;
   value: Array<any>;
 }
 
@@ -27,15 +27,15 @@ export const CRUDTree: React.FC<CRUDTreeProps> = ({
 }) => {
 
     const _onAdd = (x : any) => {
-        if(onAdd) onAdd(x)
+        if(onAdd) onAdd({item: x})
     }
 
     const _onEdit = (x : any) => {
-        if(onEdit) onEdit(x)
+        if(onEdit) onEdit({item: x})
     }
 
     const _onClick = (x : any) => {
-        if(onClick) onClick(x)
+        if(onClick) onClick({item: x})
     }
 
     return (

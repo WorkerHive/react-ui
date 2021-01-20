@@ -21,13 +21,13 @@ export interface FileBrowserProps {
   loading?: boolean;
   files: Array<any>;
   title?: string;
-  onConvertFiles?: Function;
-  onUploadFiles?: Function;
-  onFileOpen?: Function;
-  onFileUpload?: Function;
-  onFileDownload?: Function;
-  onDownloadProgress?: Function;
-  onDownloadEnd?: Function;
+  onConvertFiles?: (args: {files: Array<any>}) => void;
+  onUploadFiles?: () => void;
+  onFileOpen?: (args: {target: object}) => void;
+  onFileUpload?: () => void;
+  onFileDownload?: (args: {files: Array<any>}) => void;
+  onDownloadProgress?: () => void;
+  onDownloadEnd?: () => void;
 }
 
 
@@ -81,15 +81,15 @@ export const WorkhubFileBrowser: React.FC<FileBrowserProps> = (props) => {
           console.log("DsIR")
         } else {
           console.log(action.payload)
-          if (props.onFileOpen) props.onFileOpen(action.payload.targetFile)
+          if (props.onFileOpen) props.onFileOpen({target: action.payload.targetFile})
         }
         break;
       case 'convert_files':
-        if (props.onConvertFiles) props.onConvertFiles(files)
+        if (props.onConvertFiles) props.onConvertFiles({files: files})
         break;
       case "download_files":
 
-        if (props.onFileDownload) props.onFileDownload(files);
+        if (props.onFileDownload) props.onFileDownload({files: files});
         /*
         let downloadSize = files.map((x) => x.size).reduce((a, b) => a + b)
 

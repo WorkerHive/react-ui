@@ -4,7 +4,7 @@ import { useDropzone } from 'react-dropzone';
 import styled from 'styled-components'
 
 export interface FileDropProps {
-  onDrop: Function;
+  onDrop: (args: {files: File[]}) => void;
   noClick?: boolean;
   children?: any;
   className?: string;
@@ -15,7 +15,7 @@ export const FileDrop : React.FC<FileDropProps> = (props) => {
 
     const onDrop = React.useCallback(acceptedFiles => {
         console.log(acceptedFiles)
-        if(props.onDrop) props.onDrop(acceptedFiles)
+        if(props.onDrop) props.onDrop({files: acceptedFiles})
     }, [])
 
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop, noClick: props.noClick || false})

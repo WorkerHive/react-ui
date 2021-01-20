@@ -15,7 +15,7 @@ import styled from 'styled-components'
 
 export interface HeaderProps{
   className?: string;
-  onTabSelect?: Function;
+  onTabSelect?: (args: {tab: string}) => void;
   title?: string;
   tabs?: Array<any>;
   connected?: string;
