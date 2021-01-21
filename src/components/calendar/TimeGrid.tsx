@@ -13,7 +13,6 @@ import TimeGridHeader from 'react-big-calendar/lib/TimeGridHeader'
 import { notify } from 'react-big-calendar/lib/utils/helpers'
 import { inRange, sortEvents } from 'react-big-calendar/lib/utils/eventLevels'
 import Resources from 'react-big-calendar/lib/utils/Resources'
-import { Moment } from 'moment'
 
 export interface TimeGridProps {
   showTimes: boolean;
@@ -22,7 +21,7 @@ export interface TimeGridProps {
 
   step?: number
   timeslots?: number
-  range?: Array<Moment>
+  range?: Array<Date>
   min?: Date
   max?: Date
   getNow: Function
@@ -95,7 +94,7 @@ export default class TimeGrid extends Component<TimeGridProps, {gutterWidth: any
   componentDidMount() {
     this.checkOverflow()
 
-    if (this.props.width == null) {
+    if (this.props.showTimes && this.props.width == null) {
       this.measureGutter()
     }
 
@@ -126,7 +125,7 @@ export default class TimeGrid extends Component<TimeGridProps, {gutterWidth: any
   }
 
   componentDidUpdate() {
-    if (this.props.width == null) {
+    if (this.props.showTimes && this.props.width == null) {
       this.measureGutter()
     }
 
