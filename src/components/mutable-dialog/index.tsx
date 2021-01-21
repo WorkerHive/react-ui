@@ -2,6 +2,12 @@
 import React from 'react'
 
 import {
+  KeyboardDatePicker,
+  KeyboardTimePicker,
+  KeyboardDateTimePicker
+} from '@material-ui/pickers'
+
+import {
   Dialog,
   DialogTitle,
   TextField,
@@ -54,6 +60,12 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
     if (props.onSave) props.onSave({item: data})
   }
 
+  const onChange = (key, value) => {
+    let d = Object.assign({}, data)
+    d[key] = value;
+    setData(d)
+  }
+
   const renderItem = (key: string, type: any) : any => {
     switch (type.type ? type.type : type) {
       case 'KV':
@@ -62,9 +74,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
             value={data[key] ? data[key][type.key] : ''}
             types={type.items}
             onChange={(value: any) => {
-              const d = Object.assign({}, data)
-              d[key] = value
-              setData(d)
+              onChange(key, value)
             }}
           />
         )
@@ -75,10 +85,8 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
             <Select
               value={data[key] ? data[key][type.key] : ''}
               onChange={(event) => {
-                let d = Object.assign({}, data)
-                d[key] = { [type.key]: event.target.value }
-                console.log(d[key])
-                setData(d)
+                onChange(key, {[type.key]: event.target.value})
+
               }}
               label={uppercase(key)}
             >
@@ -96,9 +104,8 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
             items={type.items}
             value={data[key] || {}}
             onChange={(permissions: any) => {
-              let d = Object.assign({}, data)
-              d[key] = permissions
-              setData(d)
+              onChange(key, permissions)
+
             }}
           />
         )
@@ -109,9 +116,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
             type='password'
             value={data[key] || ''}
             onChange={(e) => {
-              let d = Object.assign({}, data)
-              d[key] = e.target.value
-              setData(d)
+              onChange(key, e.target.value)
             }}
           />
         )
@@ -120,13 +125,43 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
           <TextField
             value={data[key] || ''}
             onChange={(e) => {
-              let d = Object.assign({}, data)
-              d[key] = e.target.value
-              setData(d)
+              onChange(key, e.target.value)
             }}
             margin='dense'
             label={uppercase(key)}
           />
+        )
+      case 'Date':
+        return (
+          <KeyboardDatePicker
+            margin="dense"
+            label={uppercase(key)}
+            format={"DD/MM/YYYY"}
+            value={data[key] || new Date()}
+            onChange={(e) => {
+              onChange(key, e)
+            }} />
+        )
+      case 'Time':
+        return (
+          <KeyboardTimePicker
+            margin="dense"
+            label={uppercase(key)}
+            value={data[key] || new Date()}
+            onChange={(e) => {
+              onChange(key, e)
+            }} />
+        )
+      case 'Datetime':
+        return (
+          <KeyboardDateTimePicker
+            margin="dense"
+            format={"DD/MM/YYYY hh:mma"}
+            label={uppercase(key)}
+            value={data[key] || new Date()}
+            onChange={(e) => {
+              onChange(key, e)
+            }} />
         )
       default:
         return null

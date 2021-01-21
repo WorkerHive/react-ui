@@ -1,9 +1,9 @@
 import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0';
-
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { MutableDialog, MutableDialogProps } from '../components/mutable-dialog';
-
+import MomentUtils from '@date-io/moment';
 
 export default {
   title: 'Example/Dialog',
@@ -13,13 +13,19 @@ export default {
   },
 } as Meta;
 
-const Template: Story<MutableDialogProps> = (args) => <MutableDialog {...args} />;
+const Template: Story<MutableDialogProps> = (args) =>
+  <MuiPickersUtilsProvider utils={MomentUtils}>
+    <MutableDialog {...args} />
+  </MuiPickersUtilsProvider>
 
 export const Primary = Template.bind({});
 Primary.args = {
   title: 'Test Dialog',
   structure: {
-    name: 'String'
+    name: 'String',
+    start: 'Date',
+    time: 'Time',
+    end: 'Datetime'
   },
   data: {name: 'Test'},
   open: true
