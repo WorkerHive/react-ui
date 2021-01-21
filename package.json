@@ -1,6 +1,6 @@
 {
   "name": "@workerhive/react-ui",
-  "version": "1.0.22",
+  "version": "1.1.4",
   "description": "React UI Component library for Workhub",
   "author": "The Tech Company",
   "license": "MIT",
@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
+    "build:doc": "node src/make-doc.js",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build",
@@ -61,8 +62,8 @@
     "rollup": "^2.36.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-postcss": "4.0",
-    "rollup-plugin-styles": "^3.12.1",
     "rollup-plugin-typescript2": "^0.29.0",
+    "silly-ts-json-schema-generator": "^0.84.0",
     "typescript": "^3.7.5"
   },
   "files": [
@@ -76,8 +77,11 @@
     "babylonjs-loaders": "^5.0.0-alpha.6",
     "chonky": "^2.1.0",
     "chonky-icon-fontawesome": "^2.1.0",
+    "dayz": "^2.9.0",
     "file-saver": "^2.0.5",
     "moment": "^2.29.1",
+    "moment-range": "^4.0.2",
+    "react-big-calendar": "^0.30.0",
     "react-dropzone": "^11.2.4",
     "react-pdf": "^5.1.0",
     "react-spinkit": "^3.0.0",

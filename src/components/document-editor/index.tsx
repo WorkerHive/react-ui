@@ -3,10 +3,10 @@ import React from 'react';
 import Editor from 'rich-markdown-editor';
 
 export interface DocumentEditorProps {
-  data: any;
-  id?: any;
-  links?: any;
-  onChange?: Function;
+  data: {id: string, data: string};
+  id?: string;
+  links?: Array<any>;
+  onChange?: (args: {value: string}) => void;
 }
 
 export const DocumentEditor: React.FC<DocumentEditorProps> = (props) => {
@@ -22,7 +22,7 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = (props) => {
     <Editor
       onChange={(valueFn) => {
         let val = valueFn();
-        if (props.onChange) props.onChange(val)
+        if (props.onChange) props.onChange({value: val})
         console.log("Editor event", val)
       }}
       value={data.content}
@@ -41,9 +41,7 @@ export const DocumentEditor: React.FC<DocumentEditorProps> = (props) => {
           }
         }
       ]}
-      onSearchLink={(search) => {
-        return props.links.filter((a : any) => a.title.indexOf(search) > -1).map((x : any) => ({ title: x.title, url: `/dashboard/kb/${x.id}` }))
-      }}
+
     />
   )
 }

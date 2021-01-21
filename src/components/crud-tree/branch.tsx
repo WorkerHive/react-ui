@@ -14,8 +14,8 @@ import {
 } from "@material-ui/icons"
 
 export interface BranchProps {
-  onEdit?: Function;
-  onAdd?: Function;
+  onEdit?: () => void;
+  onAdd?: () => void;
   onClick?: (e: any) => void;
   id: string;
   label: string;

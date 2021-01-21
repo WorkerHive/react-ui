@@ -10,8 +10,8 @@ import {
 } from '@material-ui/core'
 
 export interface RWTableProps {
-  onChange?: Function;
-  value: any;
+  onChange?: (args: {value: object}) => void;
+  value: {};
   items: Array<any>;
 }
 
@@ -22,7 +22,7 @@ export const RWTable : React.FC<RWTableProps> = (props) => {
         let val = _value[props.items[ix].name] || {};
         val[key] = value;
         _value[props.items[ix].name] = val;
-        if(props.onChange) props.onChange(_value)
+        if(props.onChange) props.onChange({value: _value})
     }
 
     return (

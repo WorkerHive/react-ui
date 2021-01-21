@@ -1,7 +1,6 @@
 import typescript from "rollup-plugin-typescript2";
 import pkg from "./package.json";
 import commonjs from 'rollup-plugin-commonjs';
-import styles from "rollup-plugin-styles";
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
 const input = "src/index.ts";
 

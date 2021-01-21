@@ -22,9 +22,9 @@ import styled from 'styled-components'
 
 export interface SearchTableProps{
   className?: string;
-  data?: Array<any>;
-  renderItem?: Function;
-  filter?: Function;
+  data?: Array<object>;
+  renderItem?: (args: {item: object}) => React.Component;
+  filter?: (args: {item: object, filterText: string}) => boolean;
 }
 
 export const SearchTable : React.FC<SearchTableProps> = ({
@@ -59,12 +59,12 @@ export const SearchTable : React.FC<SearchTableProps> = ({
                 <List>
                     {data.filter((a) => {
                         if(filter && search.length > 0){
-                            return filter(a, search)
+                            return filter({item: a, filterText: search})
                         }
                         return true;
                     }).map((x) => (
                     <ListItem>
-                        {renderItem(x)}
+                        {renderItem({item: x})}
                     </ListItem>
                     ))}
                 </List>

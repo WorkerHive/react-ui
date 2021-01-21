@@ -20,11 +20,11 @@ import { MutableDialog } from '../mutable-dialog'
 export interface CRUDListProps {
   className?: string;
   data?: Array<any>
-  onDelete?: Function
-  onEdit?: Function
-  onSave?: Function
+  onDelete?: (args: {item: object}) => void;
+  onEdit?: (args: {item: object}) => void;
+  onSave?: (args: {item: object}) => void;
   title: string
-  type?: any
+  type?: object
   dialog?: React.Component
 }
 
@@ -39,7 +39,7 @@ export const CRUDList: React.FC<CRUDListProps> = ({
   onSave
 }) => {
   const [dialogOpen, openDialog] = React.useState(false)
-  const [selected, setSelected] = React.useState(null)
+  const [selected, setSelected] = React.useState<any>()
   const [anchorEl, setAnchorEl] = React.useState<any>(null)
 
   return (
@@ -47,7 +47,7 @@ export const CRUDList: React.FC<CRUDListProps> = ({
       {type && !dialog && (
         <MutableDialog
           onSave={(data: any) => {
-            if (onSave) onSave(data)
+            if (onSave) onSave({item: data})
             openDialog(false)
             setSelected(null)
           }}
@@ -88,7 +88,7 @@ export const CRUDList: React.FC<CRUDListProps> = ({
               if(!onEdit){
                 openDialog(true)
               }else{
-                onEdit(selected)
+                if(selected) onEdit({item: selected})
               }
             }}>
               <Typography>Edit</Typography>
@@ -96,7 +96,7 @@ export const CRUDList: React.FC<CRUDListProps> = ({
             <MenuItem
               onClick={() => {
                 if (onDelete) {
-                  onDelete(selected)
+                  onDelete({item: selected})
                 }
               }}
             >

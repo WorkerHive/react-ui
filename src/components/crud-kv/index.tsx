@@ -13,12 +13,11 @@ import {
 
 export interface CRUDKVProps {
   types: Array<any>;
-  value: any;
-  onChange?: Function;
+  value: Array<any>;
+  onChange?: (args: {value: Array<any>}) => void;
 }
 
 export const CRUDKV : React.FC<CRUDKVProps> = (props) => {
-    const [ items, setItems ] = React.useState<Array<any>>([]);
 
     const scalar = [
         "ID",
@@ -35,7 +34,7 @@ export const CRUDKV : React.FC<CRUDKVProps> = (props) => {
 
         v[ix] = Object.assign({}, v[ix], {[mod]: value});
 
-        if(props.onChange)props.onChange(v);
+        if(props.onChange)props.onChange({value: v});
     }
 
     const getType = (str : string) => {
@@ -55,7 +54,7 @@ export const CRUDKV : React.FC<CRUDKVProps> = (props) => {
             {(props.value || []).map((x : any, ix : number) => (
                 <div style={{display: 'flex', marginBottom: 8}}>
                     <TextField style={{marginRight: 4}} value={x.name} onChange={(e) => {
-                        onChange(ix, "name", e.target)
+                        onChange(ix, "name", e.target.value)
                     }} fullWidth label="Key Name"/>
                     <FormControl style={{marginLeft: 4}} fullWidth>
                         <InputLabel>Type</InputLabel>
@@ -75,7 +74,7 @@ export const CRUDKV : React.FC<CRUDKVProps> = (props) => {
                     <Checkbox checked={isList(x.type)} />
                 </div>
             ))}
-            <Button style={{marginTop: 12}} color="primary" fullWidth onClick={() => setItems(items.concat([{}]))} variant="contained">Add Row</Button>
+            <Button style={{marginTop: 12}} color="primary" fullWidth onClick={() => props.onChange && props.onChange({value: props.value.concat([{name: '', type: ''}])})} variant="contained">Add Row</Button>
         </div>
     )
 }

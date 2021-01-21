@@ -22,12 +22,11 @@ import styled from 'styled-components'
 
 export interface PermissionFormProps {
   className: string;
-  permissions: any;
-  type: any;
-  selected?: any;
-  onClose?: Function;
-  onSave?: Function;
-  style?: any;
+  permissions: Array<any>;
+  type: Array<any>;
+  selected?: object;
+  onClose?: () => void;
+  onSave?: (args: {data: object, changes: object}) => void;
 }
 
 export const PermissionForm : React.FC<PermissionFormProps> = (props) => {
@@ -117,13 +116,13 @@ export const PermissionForm : React.FC<PermissionFormProps> = (props) => {
     }
 
     const onSave = () => {
-        if(props.onSave) props.onSave(dataObj, changes)
+        if(props.onSave) props.onSave({data: dataObj, changes: changes})
         onClose();
     }
 
     return (
         <div className={props.className}>
-            <Dialog fullWidth open={props.selected || dialogOpen} onClose={() => {
+            <Dialog fullWidth open={props.selected != null || dialogOpen} onClose={() => {
                onClose()
             }}>
                 <DialogTitle>{type.name}</DialogTitle>

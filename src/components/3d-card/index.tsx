@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Engine, Scene, Vector3, ArcRotateCamera, SceneLoader } from 'babylonjs';
 import 'babylonjs-loaders';
 
