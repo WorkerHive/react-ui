@@ -38,6 +38,9 @@ Primary.args = {
     end: new Date(),
     allDay: true,
     title: "Second Test"
-  }]
+  }],
+  onSelectSlot: (slotInfo) => console.log(slotInfo),
+  onSelectEvent: (event) => console.log(event),
+  onDoubleClickEvent: (event) => console.log(event)
 };
 

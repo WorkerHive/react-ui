@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import moment, { Moment } from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { ScheduleWeek } from './schedule-week';
+import { Paper } from '@material-ui/core';
 
 const localizer = momentLocalizer(moment)
 
@@ -28,24 +29,38 @@ export interface CalendarProps{
   events?: Array<CalendarEvent>
   viewDate?: Date
   defaultView?: string
+  onSelectSlot?: (slotInfo: {
+    start: Date,
+    end: Date,
+    slots: Array<Date>,
+    action: "select" | "click" | "doubleClick"
+  }) => void
+  onSelectEvent?: (event: object, syntheticEvent?: any) => void
+  onDoubleClickEvent?: (event: object, syntheticEvent?: any) => void
 }
 
 export const WorkhubCalendar : React.FC<CalendarProps> = ({
   className,
   events = [],
   defaultView = CALENDAR_VIEWS.SCHEDULE,
-  viewDate = new Date()
+  viewDate = new Date(),
+  onSelectSlot,
+  onSelectEvent,
+  onDoubleClickEvent
 }) => {
 
 
   return (
-    <div className={className}>
+    <Paper className={className}>
       <BigCalendar
         views={{
           month: true,
           week: true,
           schedule_week: ScheduleWeek
         }}
+        onSelectEvent={onSelectEvent}
+        onDoubleClickEvent={onDoubleClickEvent}
+        onSelectSlot={onSelectSlot}
         messages={{schedule_week: "Schedule"}}
         defaultView={defaultView}
         selectable={true}
@@ -55,13 +70,14 @@ export const WorkhubCalendar : React.FC<CalendarProps> = ({
         startAccessor="start"
         endAccessor="end"
          />
-    </div>
+    </Paper>
   )
 }
 
 export const StyledCalendar = styled(WorkhubCalendar)`
   display: flex;
   flex: 1;
+  padding: 4px;
   flex-direction: column;
   position: relative;
 

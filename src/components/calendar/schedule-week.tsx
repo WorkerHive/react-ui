@@ -55,7 +55,6 @@ class ScheduleWeek extends React.Component<ScheduleWeekProps, {}> {
 
   render(){
     let range = this.range(this.props.date);
-    console.log(this.props)
     return (
        <TimeGrid {...this.props} components={{
          ...this.props.components,
@@ -67,7 +66,7 @@ class ScheduleWeek extends React.Component<ScheduleWeekProps, {}> {
 }
 
 ScheduleWeek.title = (date) => {
-  return `Schedule for ${date.toLocaleDateString()}`
+  return `Schedule for ${moment(date).format('DD/MM/YYYY')}`
 }
 
 export {
