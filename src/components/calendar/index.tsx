@@ -1,14 +1,12 @@
 import React from 'react';
 
 import {Calendar as BigCalendar, momentLocalizer} from 'react-big-calendar';
-import * as Moment from 'moment';
-import { extendMoment } from 'moment-range';
-import styled from 'styled-components'
 
+import styled from 'styled-components'
+import moment, { Moment } from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { ScheduleWeek } from './schedule-week';
 
-const moment = extendMoment(Moment);
 const localizer = momentLocalizer(moment)
 
 export enum CALENDAR_VIEWS {
@@ -18,8 +16,8 @@ export enum CALENDAR_VIEWS {
 }
 
 export interface CalendarEvent{
-  start: Date | Moment.Moment ;
-  end: Date | Moment.Moment;
+  start: Date | Moment ;
+  end: Date | Moment;
   title: string;
   allDay?: boolean;
   resource?: any
