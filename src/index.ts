@@ -24,6 +24,8 @@ import { DocumentEditor } from './components/document-editor';
 import { StyledFileBrowser as FileBrowser } from './components/file-browser'
 import { StyledFileDrop as FileDrop } from './components/file-drop';
 
+import { StyledCalendar as Calendar } from './components/calendar'
+
 import { pdfjs } from 'react-pdf';
 import { setChonkyDefaults } from 'chonky';
 import { ChonkyIconFA } from 'chonky-icon-fontawesome';
@@ -33,4 +35,23 @@ setChonkyDefaults({ iconComponent: ChonkyIconFA });
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export {
-  ShortcutLinks, DocumentEditor, FileDrop, FileBrowser, AccordionList, CRUDList, CRUDTree, CRUDKV, MutableDialog, RWTable, GraphKanban, PDFCard, TeamCircles, GLBCard, Header, MoreMenu, PermissionForm, SearchTable }
+  Calendar,
+  ShortcutLinks,
+  DocumentEditor,
+  FileDrop,
+  FileBrowser,
+  AccordionList,
+  CRUDList,
+  CRUDTree,
+  CRUDKV,
+  MutableDialog,
+  RWTable,
+  GraphKanban,
+  PDFCard,
+  TeamCircles,
+  GLBCard,
+  Header,
+  MoreMenu,
+  PermissionForm,
+  SearchTable
+}
