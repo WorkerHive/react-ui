@@ -35,7 +35,7 @@ export const MoreMenu : React.FC<MoreMenuProps> = (props) => {
       <>
         <IconButton className="more-menu" onClick={toggleMenu}>
             <MoreVert />
-        </IconButton>,
+        </IconButton>
         <Menu open={props.menu.length > 0 && menuOpen != null} onClose={() => openMenu(null)} anchorEl={menuOpen}>
             {props.menu.map((x) => {
                 return (
