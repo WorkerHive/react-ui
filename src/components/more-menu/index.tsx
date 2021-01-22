@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 
 export interface MoreMenuItem {
-  icon?: React.Component;
+  icon?: any;
   label?: string;
   color?: string;
   action?: () => void;

@@ -26,13 +26,14 @@ import { StyledFileDrop as FileDrop } from './components/file-drop';
 
 import { StyledCalendar as Calendar } from './components/calendar'
 
-import { pdfjs } from 'react-pdf';
+/*import { pdfjs } from 'react-pdf';
 import { setChonkyDefaults } from 'chonky';
 import { ChonkyIconFA } from 'chonky-icon-fontawesome';
+*/
 
-setChonkyDefaults({ iconComponent: ChonkyIconFA });
+//setChonkyDefaults({ iconComponent: ChonkyIconFA });
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+//pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export {
   Calendar,
