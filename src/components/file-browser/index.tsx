@@ -145,10 +145,10 @@ export const WorkhubFileBrowser: React.FC<FileBrowserProps> = (props) => {
         title={"Folder"}
         open={folderDialog}
         structure={{ name: 'String' }}
-        onSave={(obj: any) => {
+        onSave={({item}: any) => {
           setFolders(folders.concat([{
             id: uuid.v4(),
-            filename: obj.name,
+            filename: item.name,
             isDir: true
           }])
           )

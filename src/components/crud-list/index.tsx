@@ -46,8 +46,8 @@ export const CRUDList: React.FC<CRUDListProps> = ({
     <div className={className}>
       {type && !dialog && (
         <MutableDialog
-          onSave={(data: any) => {
-            if (onSave) onSave({item: data})
+          onSave={({item}: any) => {
+            if (onSave) onSave({item: item})
             openDialog(false)
             setSelected(null)
           }}
