@@ -64,6 +64,8 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
     let d = Object.assign({}, data)
     d[key] = value;
     setData(d)
+
+    console.log(d, key, value)
   }
 
   const renderItem = (key: string, type: any) : any => {
@@ -130,6 +132,17 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
             margin='dense'
             label={uppercase(key)}
           />
+        )
+      case 'Password':
+        return (
+          <TextField
+            value={data[key] || ''}
+            onChange={(e) => {
+              onChange(key, e.target.value)
+            }}
+            margin="dense"
+            type="password"
+            label={uppercase(key)} />
         )
       case 'Date':
         return (
