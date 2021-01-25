@@ -22,6 +22,8 @@ export const CRUDKV : React.FC<CRUDKVProps> = (props) => {
     const scalar = [
         "ID",
         "String",
+        "Boolean",
+        "Hash",
         "Date",
         "Int",
         "File",
