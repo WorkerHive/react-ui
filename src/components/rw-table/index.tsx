@@ -22,6 +22,7 @@ export const RWTable : React.FC<RWTableProps> = (props) => {
         let val = _value[props.items[ix].name] || {};
         val[key] = value;
         _value[props.items[ix].name] = val;
+        console.log(_value)
         if(props.onChange) props.onChange({value: _value})
     }
 

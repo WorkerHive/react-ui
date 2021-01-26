@@ -91,7 +91,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
             key={key}
             value={data[key] ? data[key][type.key] : ''}
             types={type.items}
-            onChange={(value: any) => {
+            onChange={({value}: any) => {
               onChange(key, value)
             }}
           />
@@ -124,8 +124,8 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
             key={key}
             items={type.items}
             value={data[key] || {}}
-            onChange={(permissions: any) => {
-              onChange(key, permissions)
+            onChange={({value}: any) => {
+              onChange(key, value)
 
             }}
           />

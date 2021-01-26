@@ -43,3 +43,18 @@ OtherModels.args = {
   open: true
 }
 
+export const RWTable = Template.bind({});
+RWTable.args = {
+  title: "RWTable",
+  open: true,
+  structure: {
+    external: {
+      type: 'Table',
+      items: [{name: "Stuff"}]
+    }
+  },
+  onSave: ({item} : any) => {
+    console.log(item)
+  }
+}
+
