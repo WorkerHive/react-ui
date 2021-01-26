@@ -34,6 +34,7 @@ import { RWTable } from '../rw-table'
 
 export interface MutableDialogProps {
   data?: Record<string, any> | any
+  models?: Array<any>;
   onClose?: () => void
   onSave?: (args: {item: object}) => void;
   structure: Record<string, any>
@@ -69,10 +70,25 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
   }
 
   const renderItem = (key: string, type: any) : any => {
-    switch (type.type ? type.type : type) {
+    let typeName = type.type ? type.type : type;
+        console.log(key, type)
+
+    if(props.models && props.models.length > 0){
+      if(props.models.map((x: any) => x.name).indexOf(typeName) > -1){
+        type = {};
+        const model = props.models.filter((x: any) => x.name == typeName)[0]
+        type.key = 'id'
+        type.items = model.data;
+        typeName = 'Select'
+
+      }
+    }
+
+    switch (typeName) {
       case 'KV':
         return (
           <CRUDKV
+            key={key}
             value={data[key] ? data[key][type.key] : ''}
             types={type.items}
             onChange={(value: any) => {
@@ -81,19 +97,21 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
           />
         )
       case 'Select':
+        console.log("SELECT")
         return (
-          <FormControl>
+          <FormControl key={key}>
             <InputLabel>{uppercase(key)}</InputLabel>
             <Select
               value={data[key] ? data[key][type.key] : ''}
-              onChange={(event) => {
-                onChange(key, {[type.key]: event.target.value})
+              onChange={(event : any) => {
+                console.log("Ch ch ch changes")
 
+                onChange(key, {[type.key]: event.target.value})
               }}
               label={uppercase(key)}
             >
               {(Array.isArray(type.items) ? type.items : []).map((x: any, ix: number) => (
-                  <MenuItem key={ix} value={x.id}>
+                  <MenuItem key={ix} value={x[type.key]}>
                     {x.name}
                   </MenuItem>
               ))}
@@ -103,6 +121,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
       case 'Table':
         return (
           <RWTable
+            key={key}
             items={type.items}
             value={data[key] || {}}
             onChange={(permissions: any) => {
@@ -114,6 +133,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
       case 'Hash':
         return (
           <TextField
+            key={key}
             label={uppercase(key)}
             type='password'
             value={data[key] || ''}
@@ -125,6 +145,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
       case 'String':
         return (
           <TextField
+            key={key}
             value={data[key] || ''}
             onChange={(e) => {
               onChange(key, e.target.value)
@@ -136,6 +157,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
       case 'Password':
         return (
           <TextField
+            key={key}
             value={data[key] || ''}
             onChange={(e) => {
               onChange(key, e.target.value)
@@ -147,6 +169,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
       case 'Date':
         return (
           <KeyboardDatePicker
+            key={key}
             margin="dense"
             label={uppercase(key)}
             format={"DD/MM/YYYY"}
@@ -158,6 +181,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
       case 'Time':
         return (
           <KeyboardTimePicker
+            key={key}
             margin="dense"
             label={uppercase(key)}
             value={data[key] || new Date()}
@@ -168,6 +192,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
       case 'Datetime':
         return (
           <KeyboardDateTimePicker
+            key={key}
             margin="dense"
             format={"DD/MM/YYYY hh:mma"}
             label={uppercase(key)}
@@ -177,6 +202,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
             }} />
         )
       default:
+
         return null
     }
   }

@@ -31,3 +31,15 @@ Primary.args = {
   open: true
 };
 
+export const OtherModels = Template.bind({});
+OtherModels.args = {
+  title: 'Other models',
+  structure: {
+    name: 'String',
+    external: 'Type'
+  },
+  data: {name: "Stuff"},
+  models: [{name: "Type", def: [{name: "String"}], data: [{id: "1", name: "Tester"}]}],
+  open: true
+}
+
