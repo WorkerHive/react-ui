@@ -24,7 +24,7 @@ export interface FileBrowserProps {
   onConvertFiles?: (args: {files: Array<any>}) => void;
   onUploadFiles?: () => void;
   onFileOpen?: (args: {target: object}) => void;
-  onFileUpload?: () => void;
+  onFileUpload?: (args: {files: File[]}) => void;
   onFileDownload?: (args: {files: Array<any>}) => void;
   onDownloadProgress?: () => void;
   onDownloadEnd?: () => void;
@@ -39,8 +39,6 @@ export const WorkhubFileBrowser: React.FC<FileBrowserProps> = (props) => {
 
   const [folderDialog, dialogFolder] = React.useState(false)
   const [folderChain ] = React.useState([{ id: 'default', name: props.title || 'File Storage', isDir: true }])
-
-
 
   React.useEffect(() => {
     if (props.files && !props.loading) {
