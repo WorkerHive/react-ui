@@ -17,7 +17,7 @@ const Template: Story<RWTableProps> = (args) => <RWTable {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  items: [{name: "Test"}],
-  value: {}
+  items: [{name: "Test"}, {name: "Model"}],
+  value: {"Test": {create: true, update: true}, "Model": {create: true}}
 };
 

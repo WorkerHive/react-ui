@@ -22,6 +22,7 @@ export const RWTable : React.FC<RWTableProps> = (props) => {
         let val = _value[props.items[ix].name] || {};
         val[key] = value;
         _value[props.items[ix].name] = val;
+        console.log(_value)
         if(props.onChange) props.onChange({value: _value})
     }
 
@@ -41,16 +42,16 @@ export const RWTable : React.FC<RWTableProps> = (props) => {
                     <TableRow>
                         <TableCell>{item.name}</TableCell>
                         <TableCell align="right">
-                            <Checkbox value={props.value[item.name] && props.value[item.name].create} onChange={(e) => change(ix, 'create', e.target.checked)}  size="small" />
+                            <Checkbox checked={props.value[item.name] && props.value[item.name].create} onChange={(e) => change(ix, 'create', e.target.checked)}  size="small" />
                         </TableCell>
                         <TableCell align="right">
-                            <Checkbox value={props.value[item.name] && props.value[item.name].read} onChange={(e) => change(ix, 'read', e.target.checked)} size="small" />
+                            <Checkbox checked={props.value[item.name] && props.value[item.name].read} onChange={(e) => change(ix, 'read', e.target.checked)} size="small" />
                         </TableCell>
                         <TableCell align="right">
-                            <Checkbox value={props.value[item.name] && props.value[item.name].update} onChange={(e) => change(ix, 'update', e.target.checked)} size="small" />
+                            <Checkbox checked={props.value[item.name] && props.value[item.name].update} onChange={(e) => change(ix, 'update', e.target.checked)} size="small" />
                         </TableCell>
                         <TableCell align="right">
-                            <Checkbox value={props.value[item.name] && props.value[item.name].delete} onChange={(e) => change(ix, 'delete', e.target.checked)} size="small" />
+                            <Checkbox checked={props.value[item.name] && props.value[item.name].delete} onChange={(e) => change(ix, 'delete', e.target.checked)} size="small" />
                         </TableCell>
                     </TableRow>
                 ))}

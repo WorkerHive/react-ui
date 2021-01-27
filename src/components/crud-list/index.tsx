@@ -96,6 +96,7 @@ export const CRUDList: React.FC<CRUDListProps> = ({
             <MenuItem
               onClick={() => {
                 if (onDelete) {
+                  setSelected(null)
                   onDelete({item: selected})
                 }
               }}

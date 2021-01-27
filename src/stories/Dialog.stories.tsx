@@ -36,10 +36,26 @@ OtherModels.args = {
   title: 'Other models',
   structure: {
     name: 'String',
-    external: 'Type'
+    extern: 'Type',
+    external: '[Type]'
   },
   data: {name: "Stuff"},
-  models: [{name: "Type", def: [{name: "String"}], data: [{id: "1", name: "Tester"}]}],
+  models: [{name: "Type", def: [{name: "String"}], data: [{id: "2", name: "Tester 2"}, {id: "1", name: "Tester"}]}],
   open: true
+}
+
+export const RWTable = Template.bind({});
+RWTable.args = {
+  title: "RWTable",
+  open: true,
+  structure: {
+    external: {
+      type: 'Table',
+      items: [{name: "Stuff"}]
+    }
+  },
+  onSave: ({item} : any) => {
+    console.log(item)
+  }
 }
 
