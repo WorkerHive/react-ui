@@ -81,6 +81,13 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
         type.items = model.data;
         typeName = 'Select'
 
+      }else if(props.models.map((x: any) => `[${x.name}]`).indexOf(typeName) > -1){
+        type = {};
+        const model = props.models.filter((x: any) => `[${x.name}]` == typeName)[0]
+        type.key = 'id',
+        type.items = model.data;
+        type.multi = true;
+        typeName = 'Select'
       }
     }
 
@@ -102,7 +109,8 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
           <FormControl key={key}>
             <InputLabel>{uppercase(key)}</InputLabel>
             <Select
-              value={data[key] ? data[key][type.key] : ''}
+              multiple={type.multi}
+              value={data[key] ? data[key][type.key] : (type.multi) ? [] : ''}
               onChange={(event : any) => {
                 console.log("Ch ch ch changes")
 

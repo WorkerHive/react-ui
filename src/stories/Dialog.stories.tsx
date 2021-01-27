@@ -36,10 +36,11 @@ OtherModels.args = {
   title: 'Other models',
   structure: {
     name: 'String',
-    external: 'Type'
+    extern: 'Type',
+    external: '[Type]'
   },
   data: {name: "Stuff"},
-  models: [{name: "Type", def: [{name: "String"}], data: [{id: "1", name: "Tester"}]}],
+  models: [{name: "Type", def: [{name: "String"}], data: [{id: "2", name: "Tester 2"}, {id: "1", name: "Tester"}]}],
   open: true
 }
 
