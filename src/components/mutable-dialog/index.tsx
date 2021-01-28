@@ -87,6 +87,7 @@ export const MutableDialog: React.FC<MutableDialogProps> = (props) => {
         type.key = 'id',
         type.items = model.data;
         type.multi = true;
+        data[key][type.key] = Array.isArray(data[key]) ? data[key].map((x: any) => x[type.key]) : data[key][type.key]
         typeName = 'Select'
       }
     }
